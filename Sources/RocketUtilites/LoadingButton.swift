@@ -1,5 +1,6 @@
 
-#if os(iOS) || os(tvOS)
+#if os(iOS)
+
 import UIKit
 import RxCocoa
 import RxSwift
@@ -83,4 +84,5 @@ class LoadingButton: UIButton {
     }
     
 }
+
 #endif
