@@ -8,7 +8,7 @@ import RxSwift
 
 extension Reactive where Base: LoadingButton {
     
-    var isLoading: Binder<Bool> {
+    public var isLoading: Binder<Bool> {
         return Binder(self.base) { button, isLoading in
             button.isLoading = isLoading
         }
@@ -16,27 +16,27 @@ extension Reactive where Base: LoadingButton {
     
 }
 
-class LoadingButton: UIButton {
+open class LoadingButton: UIButton {
     
-    var isLoading: Bool = false {
+    public var isLoading: Bool = false {
         didSet {
             isLoading ? showLoading() : hideLoading()
         }
     }
     
-    var originalButtonText: String?
+    public var originalButtonText: String?
     
-    override func setTitle(_ title: String?, for state: UIControl.State) {
+    override open func setTitle(_ title: String?, for state: UIControl.State) {
         super.setTitle(title, for: state)
         originalButtonText = title
     }
     
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         centerActivityIndicatorInButton()
     }
     
-    var indicatorStyle: UIActivityIndicatorView.Style = .white
+    public var indicatorStyle: UIActivityIndicatorView.Style = .white
     
     lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView()
@@ -49,7 +49,7 @@ class LoadingButton: UIButton {
     }()
     
     @IBInspectable
-    let activityIndicatorColor: UIColor = .lightGray
+    public let activityIndicatorColor: UIColor = .lightGray
     
     func showLoading() {
         originalButtonText = self.titleLabel?.text
