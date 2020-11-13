@@ -37,16 +37,19 @@ open class LoadingButton: UIButton {
     }
     
     @IBInspectable
-    public let activityIndicatorColor: UIColor = .lightGray
+    public var activityIndicatorStyle: UIActivityIndicatorView.Style = .white
+    
+    @IBInspectable
+    public var activityIndicatorColor: UIColor = .lightGray
     
     lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.hidesWhenStopped = true
         activityIndicator.color = activityIndicatorColor
         if #available(iOS 13.0, *) {
-            activityIndicator.style = .large
+            activityIndicator.style = .medium
         } else {
-            activityIndicator.style = .gray
+            activityIndicator.style = activityIndicatorStyle
         }
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(activityIndicator)
