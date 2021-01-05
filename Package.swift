@@ -13,7 +13,7 @@ let package = Package(
             targets: ["RocketUtilites"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "5.1.1")
+        .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.0.0")
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
